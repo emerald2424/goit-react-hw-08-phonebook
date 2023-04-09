@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Grid from '@mui/material/Stack';
 
 export const ContactListItem = ({ contact }) => {
   const { name, number, id } = contact;
