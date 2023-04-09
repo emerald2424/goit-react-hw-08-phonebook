@@ -5,5 +5,7 @@ export const List = styled.ul`
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
-    padding-left: 120px;
+    align-content: space-around;
+    flex-wrap: wrap;
+    list-style-type: circle;
 `

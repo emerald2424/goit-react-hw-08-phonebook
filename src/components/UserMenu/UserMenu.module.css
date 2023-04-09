@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.logoutButton {
+  padding: 6px 12px;
+  background-color: #fff;
+  border: 1.5px solid #c8c9cc;
+  border-radius: 4px;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  text-transform: uppercase;
+}
+
+.logoutButton:active {
+  background-color: #72a1ed;
+  border: none;
+}

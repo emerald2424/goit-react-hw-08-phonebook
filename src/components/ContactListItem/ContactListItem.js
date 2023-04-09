@@ -1,19 +1,27 @@
-import { ListItem } from "./ContactListItem.styled";
+import { ListItem } from './ContactListItem.styled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from "redux/operations";
+import { deleteContact } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Grid from '@mui/material/Stack';
 
-
-export const ContactListItem = ({contact}) => {
-  const {name, phone, id} = contact;
+export const ContactListItem = ({ contact }) => {
+  const { name, number, id } = contact;
   const dispatch = useDispatch();
 
   return (
     <ListItem key={id}>
-      {name}: {phone}
-      <button type="button" onClick={() => dispatch(deleteContact(id))}>
+      {name}: {number}
+      <Button
+        variant="outlined"
+        size="small"
+        startIcon={<DeleteIcon />}
+        type="button"
+        onClick={() => dispatch(deleteContact(id))}
+      >
         Delete
-      </button>
+      </Button>
     </ListItem>
   );
 };
@@ -22,6 +30,6 @@ ContactListItem.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired
+    number: PropTypes.string.isRequired,
   }),
-}
+};

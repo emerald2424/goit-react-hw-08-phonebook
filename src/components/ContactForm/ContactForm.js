@@ -3,12 +3,12 @@ import { Form, ErrorMessage } from './ContactForm.styled';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
-
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = contact => {
@@ -27,7 +27,7 @@ export const ContactForm = () => {
       )
       .required('Required'),
 
-    phone: Yup.string()
+    number: Yup.string()
       .matches(
         /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
         'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
@@ -37,7 +37,7 @@ export const ContactForm = () => {
 
   return (
     <Formik
-      initialValues={{ name: '', phone: '' }}
+      initialValues={{ name: '', number: '' }}
       validationSchema={ContactSchema}
       onSubmit={(values, actions) => {
         handleSubmit(
@@ -59,11 +59,11 @@ export const ContactForm = () => {
 
         <label>
           Number
-          <Field type="tel" name="phone" />
-          <ErrorMessage name="phone" component="span"></ErrorMessage>
+          <Field type="tel" name="number" />
+          <ErrorMessage name="number" component="span"></ErrorMessage>
         </label>
 
-        <button type="submit">Add contact</button>
+        <Button variant="contained" size="small" type="submit">Add contact</Button>
       </Form>
     </Formik>
   );
