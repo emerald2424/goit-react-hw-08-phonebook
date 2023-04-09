@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/635.a880fc9b.chunk.css","mappings":"AAAA,uBACE,aAAc,CACd,WACF,CAEA,wBACI,YAAa,CACb,qBAAsB,CACtB,kBACJ","sources":["components/LoginForm/LoginForm.module.css"],"sourcesContent":[".form {\n  margin: 0 auto;\n  width: 320px;\n}\n  \n.label {\n    display: flex;\n    flex-direction: column;\n    margin-bottom: 16px;\n}\n"],"names":[],"sourceRoot":""}
